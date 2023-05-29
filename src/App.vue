@@ -1,6 +1,6 @@
 <template>
-<h1>hello world</h1>
-<input type="number" placeholder="enter your weight..." v-model="currentWeight">
+<h1>Weight Tracker</h1>
+<input type="number" placeholder="enter your weight..." v-model="currentWeight" step="0.1">
 <span>kg</span>
 <p>{{ currentWeight }} kg</p>
 </template>
