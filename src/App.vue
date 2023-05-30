@@ -28,7 +28,7 @@
 </template>
 
 <script setup >
-  import { computed, ref, watch} from 'vue'
+  import { computed, nextTick, ref, watch, shallowRef} from 'vue'
   import Chart from 'chart.js/auto'
 
   const weights = ref([])
@@ -45,8 +45,32 @@
     })
   }
 
+  const weightChart = shallowRef(null)
+
   watch(weights, newWeights => {
     const ws = [...newWeights]
+    nextTick(() => {
+      weightChart.value = new Chart(weightChartEl.value.getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: ws
+            .sort((a,b) => a.date - b.date)
+            .map(w => new Date(w.date).toLocaleDateString()),
+          datasets: [
+            {
+              label: 'Weights',
+              data: ws
+              .sort((a,b) => a.date - b.date)
+              .map(w => w.weight),
+              backgroundColor: 'rgba(255, 105, 180, 0.2)',
+              borderColor: 'rgba(255, 105, 180, 0.9)',
+              borderWidth: 1,
+              fill: true
+            }
+          ]
+        }
+      })
+    })
     console.log(ws)
   }, {deep: true})
   
@@ -58,7 +82,8 @@ input {
 }
 
 .canvas-box {
-  background-color: red ;
+  margin: 20px 0;
+  background-color: rgb(248, 248, 241) ;
 }
 
 </style>
