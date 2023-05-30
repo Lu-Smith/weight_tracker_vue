@@ -3,3 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  text-align: center;
+  background-color: antiquewhite;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 48px;
+  background: linear-gradient(90deg, #f5a938, #4f0779);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
