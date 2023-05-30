@@ -10,6 +10,9 @@
 </form>
 <div v-if="weights && weights.length > 0">
   <h2>Last 7 days</h2>
+  <div class="canvas-box">
+    <canvas ref="weightChartEl"></canvas>
+  </div>
   <h2>Weight History</h2>
 </div>
 
@@ -23,6 +26,7 @@
     return weights.value.sort((a, b) => b.date - a.date)[0] || 0
   })
   const weightInput = ref(60.0)
+  const weightChartEl = ref(null)
   
 
   const addWeight = () => {
