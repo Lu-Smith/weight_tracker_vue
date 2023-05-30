@@ -1,10 +1,18 @@
 <template>
 <h1>Weight Tracker</h1>
+<div>
+  <p>{{ currentWeight }}</p> 
+  <p> Current Weight (kg)</p>
+</div>
 <form @submit.prevent="addWeight">
 <input type="number" placeholder="enter your weight..." v-model="weightInput" step="0.1"><span>kg</span>
 <input type="submit" value="Add weight">
 </form>
-<p>{{ currentWeight }} kg</p>
+<div v-if="weights && weights.length > 0">
+  <h2>Last 7 days</h2>
+  <h2>Weight History</h2>
+</div>
+
 </template>
 
 <script setup >
