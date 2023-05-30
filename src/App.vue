@@ -28,7 +28,8 @@
 </template>
 
 <script setup >
-  import { computed, ref} from 'vue'
+  import { computed, ref, watch} from 'vue'
+  import Chart from 'chart.js/auto'
 
   const weights = ref([])
   const currentWeight = computed(() => {
@@ -43,6 +44,11 @@
       date: new Date().getTime()
     })
   }
+
+  watch(weights, newWeights => {
+    const ws = [...newWeights]
+    console.log(ws)
+  }, {deep: true})
   
 </script>
 
