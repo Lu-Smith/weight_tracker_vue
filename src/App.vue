@@ -13,9 +13,18 @@
   <div class="canvas-box">
     <canvas ref="weightChartEl"></canvas>
   </div>
-  <h2>Weight History</h2>
+  <div class="weight-history">
+    <h2>Weight History</h2>
+    <ul>
+      <li v-for="weight in weights" :key="weight.date">
+        <span>
+          {{ weight.weight }}kg
+        </span>
+        <small>{{ new Date(weight.date).toLocaleDateString() }}</small>
+      </li>
+    </ul>
+  </div>
 </div>
-
 </template>
 
 <script setup >
@@ -28,7 +37,6 @@
   const weightInput = ref(60.0)
   const weightChartEl = ref(null)
   
-
   const addWeight = () => {
     weights.value.push({
       weight: weightInput.value,
@@ -41,6 +49,10 @@
 <style>
 input {
  padding: 10px 20px;
+}
+
+.canvas-box {
+  background-color: red ;
 }
 
 </style>
