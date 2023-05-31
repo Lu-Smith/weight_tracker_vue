@@ -194,7 +194,7 @@ form span {
 }
 
 .weight-history ul li:nth-child(even) {
-  background-color: #dfdfdf;
+  background-color: rgba(255, 105, 180, 0.1);
 }
 
 .weight-history ul li:hover {
@@ -213,7 +213,7 @@ form span {
 }
 
 .weight-history ul li small {
-  color: #888;
+  color: #888888;
   font-style: italic;
 }
 
