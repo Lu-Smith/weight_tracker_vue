@@ -19,7 +19,7 @@
       <ul>
         <li v-for="weight in weights" :key="weight.date">
           <span>
-            {{ weight.weight }}kg
+            {{ weight.weight }} kg
           </span>
           <small>{{ new Date(weight.date).toLocaleDateString() }}</small>
         </li>
@@ -169,14 +169,55 @@ form span {
   padding: 20px 25px;
 }
 
-
-
-
-
-
 .canvas-box {
+  width: 100%;
+  max-width: 720px;
+  padding: 20px 30px;
   margin: 20px 0;
-  background-color: rgb(248, 248, 241) ;
+  background-color: rgb(248, 248, 241);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+.weight-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.weight-history ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.weight-history ul li:nth-child(even) {
+  background-color: #dfdfdf;
+}
+
+.weight-history ul li:hover {
+  background-color: #f8f8f8;
+}
+
+.weight-history ul li:last-of-type {
+  border-bottom: none;
+}
+
+.weight-history ul li span {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+.weight-history ul li small {
+  color: #888;
+  font-style: italic;
+}
+
+
+
 
 </style>
