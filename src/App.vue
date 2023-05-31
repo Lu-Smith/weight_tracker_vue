@@ -34,8 +34,6 @@
   import { computed, nextTick, ref, watch, shallowRef} from 'vue'
   import Chart from 'chart.js/auto'
 
-
-
   const weights = ref([])
   const currentWeight = computed(() => {
     return weights.value.sort((a, b) => b.date - a.date)[0] || 0
@@ -132,6 +130,8 @@ form {
   border-radius: 10px;
   overflow: hidden;
   transition: 200ms linear;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 form:focus-within,
@@ -151,6 +151,7 @@ form input {
 form input[type="number"] {
  background-color: white;
  padding: 20px 25px;
+ max-width: 200px;
 }
 
 form input[type="submit"] {
