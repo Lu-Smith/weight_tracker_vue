@@ -1,7 +1,7 @@
 <template>
 <h1>Weight Tracker</h1>
-<div>
-  <p>{{ currentWeight }}</p> 
+<div class="currentWeight">
+  <span>{{ currentWeight.weight }}</span> 
   <p> Current Weight (kg)</p>
 </div>
 <form @submit.prevent="addWeight">
@@ -100,6 +100,31 @@
 <style>
 input {
  padding: 10px 20px;
+}
+
+.currentWeight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  background-color: white;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 5px solid #e69823;
+  margin: 30px auto;
+  color: #4f0779;
+  
+
+}
+
+.currentWeight span {
+  display: block;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .canvas-box {

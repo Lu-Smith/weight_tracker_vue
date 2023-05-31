@@ -20,10 +20,12 @@ h1 {
   color: transparent;
   display: inline-block;
   font-weight: 700;
+
 }
 
 h2 {
   margin: 30px;
   color: #666262;
   font-weight: 400;
+  text-align: left;
 }
