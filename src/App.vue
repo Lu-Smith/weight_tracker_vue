@@ -68,6 +68,10 @@
               fill: true
             }
           ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
         }
       })
     })
