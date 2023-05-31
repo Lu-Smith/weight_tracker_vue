@@ -1,30 +1,31 @@
 <template>
-<h1>Weight Tracker</h1>
-<div class="currentWeight">
-  <span>{{ currentWeight.weight }}</span> 
-  <p> Current Weight (kg)</p>
-</div>
-<form @submit.prevent="addWeight">
-<input type="number" placeholder="enter your weight..." v-model="weightInput" step="0.1"><span>kg</span>
-<input type="submit" value="Add weight">
-</form>
-<div v-if="weights && weights.length > 0">
-  <h2>Last 7 days</h2>
-  <div class="canvas-box">
-    <canvas ref="weightChartEl"></canvas>
+  <h1>Weight Tracker</h1>
+  <div class="currentWeight">
+    <span>{{ currentWeight.weight }}</span> 
+    <p> Current Weight (kg)</p>
   </div>
-  <div class="weight-history">
-    <h2>Weight History</h2>
-    <ul>
-      <li v-for="weight in weights" :key="weight.date">
-        <span>
-          {{ weight.weight }}kg
-        </span>
-        <small>{{ new Date(weight.date).toLocaleDateString() }}</small>
-      </li>
-    </ul>
+  <form @submit.prevent="addWeight">
+    <input type="number" placeholder="enter your weight..." v-model="weightInput" step="0.1">
+    <span>kg</span>
+    <input type="submit" value="Add weight">
+  </form>
+  <div v-if="weights && weights.length > 0">
+    <h2>Last 7 days</h2>
+    <div class="canvas-box">
+      <canvas ref="weightChartEl"></canvas>
+    </div>
+    <div class="weight-history">
+      <h2>Weight History</h2>
+      <ul>
+        <li v-for="weight in weights" :key="weight.date">
+          <span>
+            {{ weight.weight }}kg
+          </span>
+          <small>{{ new Date(weight.date).toLocaleDateString() }}</small>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </template>
 
 <script setup >
@@ -98,10 +99,6 @@
 </script>
 
 <style>
-input {
- padding: 10px 20px;
-}
-
 .currentWeight {
   display: flex;
   flex-direction: column;
@@ -116,8 +113,6 @@ input {
   border: 5px solid #e69823;
   margin: 30px auto;
   color: #4f0779;
-  
-
 }
 
 .currentWeight span {
@@ -126,6 +121,50 @@ input {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+form {
+  display: flex;
+  border: 1px solid #AAA;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 200ms linear;
+}
+
+form:focus-within,
+form:hover {
+  border-color:#4f0779;
+  border-width: 2px;
+}
+
+form input {
+  appearance: none;
+  outline: none;
+  border: none;
+  flex: 1 1 0%;
+  font-size: 20px;
+}
+
+form input[type="number"] {
+ background-color: white;
+ padding: 20px 25px;
+}
+
+form input[type="submit"] {
+ cursor: pointer;
+ background-color: #4f0779;
+ padding: 10px 15px;
+ color:white;
+ transition: all 200ms linear;
+ border-left: 3px solid transparent;
+}
+
+form span {
+  background-color: white;
+  padding: 20px 25px;
+}
+
+
+
 
 .canvas-box {
   margin: 20px 0;
