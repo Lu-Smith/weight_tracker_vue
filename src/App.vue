@@ -155,13 +155,21 @@ form input[type="submit"] {
  padding: 10px 15px;
  color:white;
  transition: all 200ms linear;
- border-left: 3px solid transparent;
+ border-left: 3px solid #4f0779;
+}
+
+form input[type="submit"]:hover {
+ background-color: #330950;
+ color:#e69823;
+ border-left: 3px solid #e69823;
 }
 
 form span {
   background-color: white;
   padding: 20px 25px;
 }
+
+
 
 
 
